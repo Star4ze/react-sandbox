@@ -1,0 +1,15 @@
+.contacts{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 10px;
+}
+
+.contacts div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;   
+    padding: 5px;
+    background-color: lightgoldenrodyellow;
+    gap: 2vw ;
+}

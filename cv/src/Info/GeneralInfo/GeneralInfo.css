@@ -1,0 +1,10 @@
+.GeneralInfo{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 60%;
+}
+
+.GeneralInfo strong{
+    border-bottom: 1px solid;
+}

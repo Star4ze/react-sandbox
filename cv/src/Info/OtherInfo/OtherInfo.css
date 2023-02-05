@@ -1,0 +1,7 @@
+.otherInfo{
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid;
+    padding: 10px;
+    width: 40%;
+}
