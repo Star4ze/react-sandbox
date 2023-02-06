@@ -11,11 +11,20 @@ function AddToDo(props) {
         props.addTodo({ task: inputTask, date: inputDate, prio: parseInt(inputPrio) });
     };
     return (
-        <form onSubmit={onSubmit}>
-            <input type="text" onInput={e => setInputTask(e.target.value)} />
-            <input type="date" onInput={e => setInputDate(e.target.value)} />
-            <input type="range" min='1' max='5' onInput={e => setInputPrio(e.target.value)} />
-            <input type="submit" value="Add" />
+        <form onSubmit={onSubmit} className='addToDo'>
+            <div>
+                <div>
+                    <label for='task'>Task :</label>
+                    <label for='date'>Due Date :</label>
+                    <label for='prio'>Priority :</label>
+                </div>
+                <div>
+                    <input type="text" id='task' onInput={e => setInputTask(e.target.value)} />
+                    <input type="date" id='date' onInput={e => setInputDate(e.target.value)} />
+                    <input type="range" id='prio' min='1' max='5' onInput={e => setInputPrio(e.target.value)} />
+                </div>
+            </div>
+            <input type="submit" value="Add"  className="form-submit-button"/>
         </form>
     )
 

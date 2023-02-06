@@ -1,12 +1,26 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  width: 600px;
+  height: 100%;
+  background-color: bisque;
 }
 
 .App-header {
   background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.form-submit-button {
+  background: #0066A2;
+  color: white;
+  border-style: outset;
+  border-color: #0066A2;
+  height: fit-content;
+  width: fit-content;
+  font: bold15px arial, sans-serif;
+  align-self: center;
+  padding: 3px 10px;
 }

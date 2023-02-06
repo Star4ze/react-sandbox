@@ -1,0 +1,21 @@
+.ShowToDo {
+    width: 400px;
+    align-self: center;
+}
+
+.ShowToDo>ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.ShowToDo li{
+    display: flex;
+    gap: 10px;
+}
+
+.ShowToDo li span {
+    padding: 0 5px;
+    border-left: 1px solid black;
+}
