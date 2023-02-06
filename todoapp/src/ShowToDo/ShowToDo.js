@@ -16,7 +16,7 @@ function ShowToDo(props) {
                         <span>{t.task}</span>
                         <span>{t.date}</span>
                         <span>{t.prio}</span>
-                        <button onClick={() => props.done(i)} className='form-submit-button'>Done</button>  {/* y? */}
+                        <button onClick={() => props.remove(i)} className='form-submit-button'>Done</button>  {/* y? */}
                     </li>)}
             </ul>
         </div>
