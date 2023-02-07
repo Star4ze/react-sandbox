@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import './Login.css'
 
 
 export default function Login({setLogged}) {
@@ -51,19 +52,18 @@ export default function Login({setLogged}) {
     }
     
     return (
-        <form onSubmit={onSubmit}>
-            <h2>{isNewUser ? "Create New Account" : "Login"}</h2>
-            <>
-                <label htmlFor="username">Username :</label>
-                <input type="text" id="username" value={username} onInput={e => setUsername(e.target.value)}></input>
-            </>
-            <>
-                <label htmlFor="password">Password :</label>
-                <input type="password" id="password" value={password} onInput={e => setPassword(e.target.value)}></input>
-            </>
-            <input type='submit' value={isNewUser ? "Sign up" : "Login"}></input>
+        <form className="login" onSubmit={onSubmit}>
+            <strong>{isNewUser ? "Create New Account" : "Login"}</strong>
+        
+                <label htmlFor="username">Username</label>
+                <input type="text" id="username" className="inputs" value={username} onInput={e => setUsername(e.target.value)}></input>
+          
+                <label htmlFor="password">Password</label>
+                <input type="password" id="password" className="inputs" value={password} onInput={e => setPassword(e.target.value)}></input>
+     
+            <input type='submit' className="form-submit-button" value={isNewUser ? "Sign up" : "Login"}></input>
             <strong>{error}</strong>
-            <input type="button" value={isNewUser ? "Have an Account? Login!" : "Create New Account!"} onClick={() => isNewUser ? setIsNewUser(false) : setIsNewUser(true)}></input>
+            <input type="button" className="form-submit-button" value={isNewUser ? "Have an Account? Login!" : "Create New Account!"} onClick={() => isNewUser ? setIsNewUser(false) : setIsNewUser(true)}></input>
         </form>
     )
 

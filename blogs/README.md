@@ -22,17 +22,13 @@ Implement client-side validation for the form. Ensure that the user cannot submi
 
 Add some styling to make the application look presentable.
 
-Submit your results via GitHub! (Deadline: 1h before the tomorrows first session) - Please send me your work also even if you did not manage to complete all steps!
 
 
-Implement authentication for the blog application, where users must log in to create or edit posts. You can use a hardcoded list of users and their passwords for this exercise.
+Implement authentication for the blog application, where users must log 
+in to create or edit posts. You can use a hardcoded list of users and their passwords for this exercise.   ✓
 
-Utilize the local storage API to store the authentication information.
+Utilize the local storage API to store the authentication information.                ✓
 
-Only authenticated users should be able to create new posts or edit existing posts.
+Only authenticated users should be able to create new posts or edit existing posts.       ✓
 
-Make sure that the application works correctly and is secure.
-
-Submit the code  for review.
-
-Note: This exercise is meant to be a challenge and may require some research and experimentation. Don't be afraid to ask for help if you get stuck!
+Make sure that the application works correctly and is secure.   

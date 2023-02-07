@@ -20,9 +20,7 @@ function App() {
       return JSON.parse(storageBlogs)
   })
 
-  useEffect(() => {
-    localStorage.setItem('blogs', JSON.stringify(blogs))
-  }, [blogs])
+  useEffect(() => { localStorage.setItem('blogs', JSON.stringify(blogs)) }, [blogs])
 
   return (
     <div className="App">
@@ -30,9 +28,7 @@ function App() {
       {logged ?
         <><AddToBlog AddToBlog={blog => setBlogs([...blogs, blog])} />
           <ShowBlogs blogs={blogs} /></>
-        : <Login setLogged={setLogged}/>}
-
-
+        : <Login setLogged={setLogged} />}
     </div>
   );
 }
