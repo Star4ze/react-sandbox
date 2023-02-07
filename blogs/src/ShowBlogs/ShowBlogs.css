@@ -1,0 +1,27 @@
+.ShowBlogs {
+    width: 400px;
+    align-self: center;
+}
+
+.showBlogsDiv {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 5px;
+    padding: 3px 5px;
+    background-color: #F9F5E7;
+    border: 1px solid black;
+
+}
+
+.ShowBlogs ul {
+    list-style-type: none;
+
+}
+
+.showBlogsDiv>div {
+    border-bottom: 1px solid;
+    display: flex;
+    justify-content: space-between;
+}
