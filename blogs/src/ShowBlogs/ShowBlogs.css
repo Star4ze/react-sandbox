@@ -9,10 +9,8 @@
     flex-direction: column;
     gap: 3px;
     margin: 5px;
-    padding: 3px 5px;
+    padding: 20px;
     background-color: #F9F5E7;
-    border: 1px solid black;
-
 }
 
 .ShowBlogs ul {

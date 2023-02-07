@@ -1,6 +1,7 @@
 import './ShowBlogs.css'
 
-function ShowBlogs(props) {
+function ShowBlogs(props) { 
+      
     return (
         <div className='ShowBlogs'>
             <ul>
@@ -10,7 +11,7 @@ function ShowBlogs(props) {
                             <div>
                                 <span id="title">Title :{b.title}</span>
                                 <span id="author">Author :{b.author}</span>
-                            </div>                  
+                            </div>                       
                             <span id='content'>{b.content}</span></div>
                     </li>)}
             </ul>

@@ -13,6 +13,7 @@ function Keyboard(props) {
         if (ops.includes((e.target.value))) {
             if (ops.includes(props.inputs[props.inputs.length - 1]))
                 setError("Wrong Format")
+
             else {
                 isInit = false
                 setOp(e.target.value)
@@ -21,16 +22,15 @@ function Keyboard(props) {
             }
         }
         else {
-            console.log(num, props.ans, e.target.value);
-
-
-            setNum(num + e.target.value)
+            console.log(num, props.ans, props.inputs, e.target.value);
+            
+            let val = num + e.target.value
+            setNum(val)
             if (isInit)
-                props.setAns(parseInt(num))
-            props.setInputs([...props.inputs, e.target.value])
-
-            console.log(num, parseInt(num), e.target.value);
+                props.setAns(parseInt(val))
+            props.setInputs([...props.inputs, e.target.value])        
         }
+        console.log(num, props.ans, props.inputs, e.target.value);
     }
 
     const cal = () => {

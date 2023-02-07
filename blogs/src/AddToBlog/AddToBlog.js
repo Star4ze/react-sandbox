@@ -9,12 +9,11 @@ function AddToBlog(props) {
 
     const onSubmit = e => {
         e.preventDefault();
-        if (inputTitle === '' || inputAuthor === '') {
+        if (!inputTitle || !inputAuthor)            //check this learned from oksana
             setError("some fields are missing")
-
-        } else {
+        else
             props.AddToBlog({ title: inputTitle, author: inputAuthor, content: inputContent });
-        }
+
         setInputTitle('');
         setInputAuthor('');
         setInputContent('');
