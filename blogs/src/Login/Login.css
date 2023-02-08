@@ -2,12 +2,14 @@
     display: flex;
     flex-direction: column;
     align-self: center;
+    justify-content: center;
+    height: 50%;
 }
 
-.login strong {
+.login strong:first-of-type {
     font-size: calc(15px + 1vmin);
-    padding-bottom: 5px;
     color: grey;
+    border-bottom: 1px solid black;margin: 10px;
 }
 
 .inputs {
@@ -20,5 +22,5 @@
 }
 
 .inputs:focus {
-    border:none;
+    border: none;
 }

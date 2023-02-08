@@ -1,18 +1,18 @@
-import { useState } from "react";
-import './AddToBlog.css';
+import { useState } from 'react';
+import './Blogs.css'
 
-function AddToBlog(props) {
-    const [inputTitle, setInputTitle] = useState('');
-    const [inputAuthor, setInputAuthor] = useState('');
-    const [inputContent, setInputContent] = useState('');
+export default function Blogs(props) {
+    const [inputTitle, setInputTitle] = useState(props.title);
+    const [inputAuthor, setInputAuthor] = useState(props.author);
+    const [inputContent, setInputContent] = useState(props.content);
     const [error, setError] = useState('');
 
     const onSubmit = e => {
         e.preventDefault();
-        if (!inputTitle || !inputAuthor) {
-            setError("some fields are missing");
+        if (!inputTitle || !inputAuthor) {        
+            setError("some fields are missing")
         } else {
-            props.AddToBlog({ title: inputTitle, author: inputAuthor, content: inputContent });
+            //props.AddToBlog({ title: inputTitle, author: inputAuthor, content: inputContent });
         }
 
         setInputTitle('');
@@ -21,7 +21,7 @@ function AddToBlog(props) {
     };
 
     return (
-        <form onSubmit={onSubmit} className='AddToBlog'>
+        <form onSubmit={onSubmit}>
             <div>
                 <div>
                     <label htmlFor='title'>Title :</label>
@@ -34,10 +34,7 @@ function AddToBlog(props) {
                     <textarea id="content" value={inputContent} rows="4" cols="50" onChange={e => setInputContent(e.target.value)} />
                 </div>
             </div>
-            <input type="submit" value="Add" className="form-submit-button" />  <strong>{error}</strong>
+            <input type="submit" value="done" className="form-submit-button" />  <strong>{error}</strong>
         </form>
     )
-
 }
-
-export default AddToBlog

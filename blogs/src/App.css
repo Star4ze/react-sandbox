@@ -3,26 +3,49 @@
   flex-direction: column;
   text-align: center;
   width: 600px;
-  background-color: #EDDBC7;
-
-}
-
-.App-header {
-  background-color: #A7727D;
-  font-size: calc(10px + 2vmin);
-  color: #EDDBC7;
-  padding: 10px;
+  height: 100%;
 }
 
 .form-submit-button {
-  background-color: grey;
   color: white;
   border-style: none;
   height: fit-content;
   width: fit-content;
-  font: bold15px arial, sans-serif;
   align-self: center;
   padding: 5px 10px;
   margin: 5px;
   border-radius: 12px;
+}
+
+.App-peach {
+  background-color: #FFFFE8;
+}
+
+.App-cofee {
+  background-color: #EDDBC7;
+}
+
+.App-blue {
+  background-color: #8EA7E9;
+}
+
+
+.App-navy {
+  background-color: #7B8FA1;
+}
+
+.Button-peach {
+  background-color: #FFD4D4;
+}
+
+.Button-cofee {
+  background-color: #A7727D;
+}
+
+.Button-blue {
+  background-color: #7286D3;
+}
+
+.Button-navy {
+  background-color: #567189;
 }
