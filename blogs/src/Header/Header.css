@@ -5,8 +5,7 @@
 }
 
 .Header>header {
-    font-size: calc(10px + 2vmin);
-    color: #EDDBC7;
+    font-size: calc(10px + 2vmin);   
     padding: 10px;
 }
 
@@ -29,4 +28,20 @@
 
 .Header-navy {
     background-color: #567189;
+}
+
+.font-peach {
+    color: #FFFFE8;
+}
+
+.font-cofee {
+    color: #F8EAD8;
+}
+
+.font-blue {
+    color: #E5E0FF;
+}
+
+.font-navy {
+    color: #CFB997;
 }

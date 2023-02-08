@@ -8,19 +8,53 @@
 
 .login strong:first-of-type {
     font-size: calc(15px + 1vmin);
-    color: grey;
-    border-bottom: 1px solid black;margin: 10px;
+    border-bottom: 1px solid black;
+    margin: 10px;
 }
 
 .inputs {
     align-self: center;
     width: 150px;
-    background-color: #F9F5E7;
-    border: none;
-    border-bottom: 2px solid #A7727D;
+    border: none; 
     margin: 5px;
 }
 
 .inputs:focus {
     border: none;
+}
+
+.inputs-peach {
+    background-color: #AACB73;
+    border-bottom: 2px solid #FFD4D4;
+}
+
+.inputs-cofee {
+    background-color: #F9F5E7;
+    border-bottom: 2px solid #A7727D;
+}
+
+.inputs-blue {
+    background-color: #FFF2F2;
+    border-bottom: 2px solid #7286D3;
+}
+
+.inputs-navy {
+    background-color: #FAD6A5;
+    border-bottom: 2px solid #567189;
+}
+
+.login-font-peach {
+    color: #FFD4D4;
+}
+
+.login-font-cofee {
+    color: #A7727D;
+}
+
+.login-font-blue {
+    color: #7286D3;
+}
+
+.login-font-navy {
+    color: #567189;
 }

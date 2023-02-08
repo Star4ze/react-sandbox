@@ -23,3 +23,19 @@
     display: flex;
     justify-content: space-between;
 }
+
+.showBlogsDiv-peach {
+    background-color: #AACB73;
+  }
+  
+  .showBlogsDiv-cofee {
+    background-color: #F9F5E7;
+  }
+  
+  .showBlogsDiv-blue {
+    background-color: #FFF2F2;
+  }
+  
+  .showBlogsDiv-navy {
+    background-color: #FAD6A5;
+  }

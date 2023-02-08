@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import './Login.css'
 
-export default function Login({ setIsLoggedIn }) {
+export default function Login({ setIsLoggedIn, theme }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isNewUser, setIsNewUser] = useState(false);
@@ -48,17 +48,17 @@ export default function Login({ setIsLoggedIn }) {
 
     return (
         <form className="login" onSubmit={onSubmit}>
-            <strong>{isNewUser ? 'Create New Account' : 'Login'}</strong>
+            <strong className={`login-font-${theme}`}>{isNewUser ? 'Create New Account' : 'Login'}</strong>
 
             <label htmlFor="username">Username</label>
-            <input type="text" id="username" className="inputs" value={username} onInput={e => setUsername(e.target.value)} />
+            <input type="text" id="username" className={`inputs inputs-${theme}`} value={username} onInput={e => setUsername(e.target.value)} />
 
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" className="inputs" value={password} onInput={e => setPassword(e.target.value)} />
+            <input type="password" id="password" className={`inputs inputs-${theme}`} value={password} onInput={e => setPassword(e.target.value)} />
 
-            <input type='submit' className="form-submit-button" value={isNewUser ? 'Sign up' : 'Login'} />
+            <input type='submit' className={`form-submit-button Button-${theme}`} value={isNewUser ? 'Sign up' : 'Login'} />
             <strong>{error}</strong>
-            <input type="button" className="form-submit-button" value={isNewUser ? 'Have an Account? Login!' : 'Create New Account!'} onClick={() => setIsNewUser(!isNewUser)} />
+            <input type="button" className={`form-submit-button Button-${theme}`} value={isNewUser ? 'Have an Account? Login!' : 'Create New Account!'} onClick={() => setIsNewUser(!isNewUser)} />
         </form>
     )
 

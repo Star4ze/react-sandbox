@@ -5,7 +5,7 @@ function ShowBlogs(props) {
             <ul>
                 {props.blogs.map((b, i) =>
                     <li key={i}>
-                        <div className='showBlogsDiv'>
+                        <div className={`showBlogsDiv showBlogsDiv-${props.theme}`}>
                             <div>
                                 <span id="title">Title :{b.title}</span>
                                 <span id="author">Author :{b.author}</span>
