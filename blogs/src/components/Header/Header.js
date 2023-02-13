@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import "./Header.css"
-import { StateTheme } from "../../components/App"
+import { StateTheme } from "../App"
 
 export default function Header(props) {
     const theme = useContext(StateTheme)

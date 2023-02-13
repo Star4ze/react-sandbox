@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import AddToBlog from './AddToBlog/AddToBlog';
 import './App.css';
-import Header from "../containers/Header/Header";
+import Header from "./Header/Header";
 import Login from "./Login/Login";
 import SearchBar from "./SearchBar/SearchBar";
 import ShowBlogs from '../containers/ShowBlogs/ShowBlogs';
