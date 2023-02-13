@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import './Blogs.scss'
+import { StateTheme } from '../App';
+
 
 export default function Blogs(props) {
     const [inputTitle, setInputTitle] = useState(props.blog.title);
@@ -7,6 +9,8 @@ export default function Blogs(props) {
     const [inputContent, setInputContent] = useState(props.blog.content);
     const [error, setError] = useState('');
     const [isEdit, setIsEdit] = useState(false);
+
+    const theme = useContext(StateTheme)
 
     const showErrorMessage = (message) => {
         setError(message)
@@ -39,9 +43,9 @@ export default function Blogs(props) {
                     <textarea id="content" value={inputContent} rows="4" cols="50" onChange={e => setInputContent(e.target.value)} />
                 </div>
             </div>
-            <input type="submit" value="done" className="form-submit-button" />  <strong>{error}</strong>
+            <input type="submit" value="done" className={`form-submit-button ${theme}`} />  <strong>{error}</strong>
         </form>
-            : <div className={`showBlogsDiv showBlogsDiv-${props.theme}`}>
+            : <div className={`showBlogsDiv showBlogsDiv-${theme}`}>
                 <div>
                     <span id="title">Title :{props.blog.title}</span>
                     <span id="author">Author :{props.blog.author}</span>

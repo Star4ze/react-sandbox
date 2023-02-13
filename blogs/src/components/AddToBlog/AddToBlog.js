@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import './AddToBlog.css';
+import { StateTheme } from "../App";
 
 function AddToBlog(props) {
     const [inputTitle, setInputTitle] = useState('');
     const [inputAuthor, setInputAuthor] = useState('');
     const [inputContent, setInputContent] = useState('');
     const [error, setError] = useState('');
+
+    const theme = useContext(StateTheme)
 
     const onSubmit = e => {
         e.preventDefault();
@@ -34,7 +37,7 @@ function AddToBlog(props) {
                     <textarea id="content" value={inputContent} rows="4" cols="50" onChange={e => setInputContent(e.target.value)} />
                 </div>
             </div>
-            <input type="submit" value="Add" className={`form-submit-button Button-${props.theme}`} />  <strong>{error}</strong>
+            <input type="submit" value="Add" className={`form-submit-button Button-${theme}`} />  <strong>{error}</strong>
         </form>
     )
 

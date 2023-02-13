@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import './Login.css'
+import { StateTheme } from "../App";
 
-export default function Login({ setIsLoggedIn, theme }) {
+export default function Login({ setIsLoggedIn }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isNewUser, setIsNewUser] = useState(false);
     const [users, setUsers] = useState([]);
     const [error, setError] = useState('');
+
+    const theme = useContext(StateTheme)
 
     useEffect(() => {
         const storageUsers = localStorage.getItem('users')
