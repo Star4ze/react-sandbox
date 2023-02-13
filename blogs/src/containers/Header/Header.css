@@ -1,5 +1,6 @@
 .Header {
     display: flex;
+    position: relative;
     justify-content: center;
     width: 100%;
 }
@@ -9,9 +10,9 @@
     padding: 10px;
 }
 
-.Header>button {
-    justify-self: flex-end;
-    align-self: center;
+.Header>button { 
+    position: absolute;
+    right: 1px;
 }
 
 .Header-peach {
@@ -29,6 +30,7 @@
 .Header-navy {
     background-color: #567189;
 }
+
 
 .font-peach {
     color: #FFFFE8;
