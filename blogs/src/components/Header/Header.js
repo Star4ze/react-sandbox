@@ -1,21 +1,25 @@
 import { useContext } from "react"
+import Actions from "../../state/Actions"
+import { StateContext } from "../App"
 import "./Header.css"
-import { StateTheme } from "../App"
 
-export default function Header(props) {
-    const theme = useContext(StateTheme)
-    const colors = ['peach', 'cofee', 'blue', 'navy']   
+
+export default function Header() {
+    const context = useContext(StateContext)
+    const COLORS = ['peach', 'cofee', 'blue', 'navy']
+    const THEME = context.state.theme
+    
     const changeTheme = () => {
-        if ('navy' !== theme) {
-            props.setTheme(colors[colors.indexOf(theme) + 1])
+        if ('navy' !== THEME) {
+            context.dispatch({ type: Actions.setTheme, payload: COLORS[COLORS.indexOf(THEME) + 1] });
         } else {
-            props.setTheme('peach')
+            context.dispatch({ type: Actions.setTheme, payload: COLORS[0] })
         }
     }
 
-    return (<div className={`Header Header-${theme}`}>
-        <header className={`font-${theme}`}>Blogs App</header>
-        <button className={`form-submit-button Button-${colors[colors.indexOf(theme) + 1]}`} onClick={changeTheme}>{theme}</button>
+    return (<div className={`Header Header-${THEME}`}>
+        <header className={`font-${THEME}`}>Blogs App</header>
+        <button className={`form-submit-button Button-${COLORS[COLORS.indexOf(THEME) + 1]}`} onClick={changeTheme}>{THEME}</button>
     </div>)
 
 }

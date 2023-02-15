@@ -1,42 +1,46 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
+import ShowBlogs from '../containers/ShowBlogs/ShowBlogs';
+import Actions from "../state/Actions";
+import { initialState } from "../state/initialState";
+import stateReducer from "../state/reducer/reducer";
 import AddToBlog from './AddToBlog/AddToBlog';
 import './App.css';
 import Header from "./Header/Header";
 import Login from "./Login/Login";
 import SearchBar from "./SearchBar/SearchBar";
-import ShowBlogs from '../containers/ShowBlogs/ShowBlogs';
 
-const StateTheme = createContext();
+const StateContext = createContext();
 
 function App() {
-  const [theme, setTheme] = useState('cofee')
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [state, dispatch] = useReducer(stateReducer, initialState)
 
-  const [blogs, setBlogs] = useState(() => {
+  useEffect(() => {
     const storageBlogs = localStorage.getItem('blogs')
-    if (!storageBlogs) { return [] }
-    if (storageBlogs.length) { return JSON.parse(storageBlogs) }
-  })
+    if (!!storageBlogs) {
+      if (storageBlogs.length) {    //is this the right method?
+        dispatch({ type: Actions.setToBlogs, payload: JSON.parse(storageBlogs) })
+      }
+    }
+  }, [])
 
-  useEffect(() => { localStorage.setItem('blogs', JSON.stringify(blogs)) }, [blogs])
-
-  const [toShow, setToShow] = useState(blogs)
+  useEffect(() => { localStorage.setItem('blogs', JSON.stringify(state.blogs)) }, [state.blogs])
 
   return (
-    <StateTheme.Provider value={theme}>
-      <div className={`App App-${theme}`} >
-        <Header setTheme={setTheme}></Header>
-        {isLoggedIn ?
+    <StateContext.Provider value={{ state, dispatch }}>
+      <div className={`App App-${state.theme}`} >
+        <Header />
+        {state.authenticated ?
           <>
-            <SearchBar setToShow={setToShow} blogs={blogs} />
-            <AddToBlog AddToBlog={blog => setBlogs([...blogs, blog])} />
-            <ShowBlogs blogs={toShow} setBlogs={setBlogs} /></>
-          : <Login setIsLoggedIn={setIsLoggedIn} />}
+            <SearchBar />
+            <AddToBlog />
+            <ShowBlogs />
+          </>
+          : <Login />}
       </div>
-     </StateTheme.Provider>
+    </StateContext.Provider>
   );
 }
 
 export default App;
 
-export { StateTheme };
+export { StateContext };

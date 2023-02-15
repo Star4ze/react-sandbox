@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import './Login.css'
-import { StateTheme } from "../App";
+import { StateContext } from "../App";
+import Actions from "../../state/Actions";
 
 export default function Login({ setIsLoggedIn }) {
     const [username, setUsername] = useState('');
@@ -9,7 +10,8 @@ export default function Login({ setIsLoggedIn }) {
     const [users, setUsers] = useState([]);
     const [error, setError] = useState('');
 
-    const theme = useContext(StateTheme)
+    const context = useContext(StateContext)
+    const theme = context.state.theme
 
     useEffect(() => {
         const storageUsers = localStorage.getItem('users')
@@ -41,7 +43,7 @@ export default function Login({ setIsLoggedIn }) {
             } else {
                 if (users.filter(e => e.name === username && e.password === password).length) {
                     console.log('Login Succefull');
-                    setIsLoggedIn(true);
+                    context.dispatch({type:Actions.login})
                 } else {
                     showErrorMessage('Username or Password is Incorrect');
                 }

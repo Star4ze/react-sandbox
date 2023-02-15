@@ -1,16 +1,17 @@
 import { useState, useContext } from 'react';
 import './Blogs.scss'
-import { StateTheme } from '../App';
+import { StateContext } from '../App';
+import Actions from '../../state/Actions';
 
 
 export default function Blogs(props) {
+    const context = useContext(StateContext)
+
     const [inputTitle, setInputTitle] = useState(props.blog.title);
     const [inputAuthor, setInputAuthor] = useState(props.blog.author);
     const [inputContent, setInputContent] = useState(props.blog.content);
     const [error, setError] = useState('');
     const [isEdit, setIsEdit] = useState(false);
-
-    const theme = useContext(StateTheme)
 
     const showErrorMessage = (message) => {
         setError(message)
@@ -22,12 +23,18 @@ export default function Blogs(props) {
         if (!inputTitle || !inputAuthor) {
             showErrorMessage("some fields are missing")
         } else {
-            let tempBlogs = [...props.blogs]
+            let tempBlogs = context.state.blogs
             tempBlogs[props.index] = { title: inputTitle, author: inputAuthor, content: inputContent }
-            props.setBlogs([...tempBlogs])
+            context.dispatch({ type: Actions.setToBlogs, payload: [...tempBlogs] })
             setIsEdit(false);
         }
     };
+
+    const onDelete = () => {
+        let tempBlogs = context.state.blogs
+        tempBlogs.splice(props.index, 1);
+        context.dispatch({ type: Actions.setToBlogs, payload: tempBlogs })
+    }
 
     return (
         <>{isEdit ? <form onSubmit={onSubmit}>
@@ -43,15 +50,16 @@ export default function Blogs(props) {
                     <textarea id="content" value={inputContent} rows="4" cols="50" onChange={e => setInputContent(e.target.value)} />
                 </div>
             </div>
-            <input type="submit" value="done" className={`form-submit-button ${theme}`} />  <strong>{error}</strong>
+            <input type="submit" value="done" className={`form-submit-button Button-${context.state.theme}`} />  <strong>{error}</strong>
         </form>
-            : <div className={`showBlogsDiv showBlogsDiv-${theme}`}>
+            : <div className={`showBlogsDiv showBlogsDiv-${context.state.theme}`}>
                 <div>
                     <span id="title">Title :{props.blog.title}</span>
                     <span id="author">Author :{props.blog.author}</span>
                 </div>
                 <span id='content'>{props.blog.content}</span></div>}
-            <button onClick={() => setIsEdit(!isEdit)}>Edit</button>
+            <button className={`form-submit-button Button-${context.state.theme}`} onClick={() => setIsEdit(!isEdit)}>Edit</button>
+            <button className={`form-submit-button Button-${context.state.theme}`} onClick={() => onDelete()}>Delete</button>
         </>
     )
 }
