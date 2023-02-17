@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import './Login.css'
 import { StateContext } from "../App";
 import Actions from "../../state/Actions";
+import { useNavigate } from "react-router-dom";
 
 export default function Login({ setIsLoggedIn }) {
     const [username, setUsername] = useState('');
@@ -9,6 +10,8 @@ export default function Login({ setIsLoggedIn }) {
     const [isNewUser, setIsNewUser] = useState(false);
     const [users, setUsers] = useState([]);
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     const context = useContext(StateContext)
     const theme = context.state.theme
@@ -38,12 +41,14 @@ export default function Login({ setIsLoggedIn }) {
                 } else {
                     let addedUser = [...users, { name: username, password: password }];
                     localStorage.setItem('users', JSON.stringify(addedUser));
-                    console.log('user added');
+                    showErrorMessage('user added');
+                    setIsNewUser(!isNewUser);
                 }
             } else {
                 if (users.filter(e => e.name === username && e.password === password).length) {
                     console.log('Login Succefull');
-                    context.dispatch({type:Actions.login})
+                    context.dispatch({ type: Actions.login })
+                    navigate('/home')
                 } else {
                     showErrorMessage('Username or Password is Incorrect');
                 }

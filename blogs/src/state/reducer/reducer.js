@@ -6,6 +6,8 @@ export default function stateReducer(state, action) {
     switch (action.type) {
         case (Actions.login):
             return { ...state, authenticated: true }
+        case (Actions.logout):
+            return { ...state, authenticated: false }
         case (Actions.setTheme):
             return { ...state, theme: action.payload }
         case (Actions.setToBlogs):

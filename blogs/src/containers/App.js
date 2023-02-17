@@ -1,13 +1,10 @@
 import { createContext, useEffect, useReducer } from "react";
-import ShowBlogs from '../containers/ShowBlogs/ShowBlogs';
 import Actions from "../state/Actions";
 import { initialState } from "../state/initialState";
 import stateReducer from "../state/reducer/reducer";
-import AddToBlog from './AddToBlog/AddToBlog';
 import './App.css';
 import Header from "./Header/Header";
-import Login from "./Login/Login";
-import SearchBar from "./SearchBar/SearchBar";
+import Routes from "./Routes/Routes";
 
 const StateContext = createContext();
 
@@ -16,26 +13,21 @@ function App() {
 
   useEffect(() => {
     const storageBlogs = localStorage.getItem('blogs')
-    if (!!storageBlogs) {
-      if (storageBlogs.length) {    //is this the right method?
-        dispatch({ type: Actions.setToBlogs, payload: JSON.parse(storageBlogs) })
-      }
+
+    if (storageBlogs.length) {
+      dispatch({ type: Actions.setToBlogs, payload: JSON.parse(storageBlogs) })
+      console.log("imported from local storage");
     }
+
   }, [])
 
   useEffect(() => { localStorage.setItem('blogs', JSON.stringify(state.blogs)) }, [state.blogs])
 
   return (
     <StateContext.Provider value={{ state, dispatch }}>
+      <Header />
       <div className={`App App-${state.theme}`} >
-        <Header />
-        {state.authenticated ?
-          <>
-            <SearchBar />
-            <AddToBlog />
-            <ShowBlogs />
-          </>
-          : <Login />}
+        <Routes />
       </div>
     </StateContext.Provider>
   );
