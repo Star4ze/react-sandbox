@@ -1,0 +1,48 @@
+.Header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+
+    header {
+        font-size: calc(10px + 2vmin);
+        padding: 10px;
+    }
+
+    button {
+        position: relative;
+        right: 1px;
+    }    
+
+    &-peach {
+        background-color: #FFD4D4;
+    }
+
+    &-cofee {
+        background-color: #A7727D;
+    }
+
+    &-blue {
+        background-color: #7286D3;
+    }
+
+    &-navy {
+        background-color: #567189;
+    }
+}
+
+.font-peach {
+    color: #FFFFE8;
+}
+
+.font-cofee {
+    color: #F8EAD8;
+}
+
+.font-blue {
+    color: #E5E0FF;
+}
+
+.font-navy {
+    color: #CFB997;
+}

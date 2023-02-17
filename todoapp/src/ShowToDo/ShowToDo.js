@@ -1,17 +1,16 @@
 import './ShowToDo.css'
 
 function ShowToDo(props) {
-    // let sortTask = []
-    // for (let i = 5; i > 0; i--) {       
-    //     sortTask.concat(props.todos.filter(t => t.prio === i))  
-    //     console.log(props.todos.filter(t => t.prio === i))
-    // }
-    // console.log(sortTask)
+    let sortTask = []
+    for (let i = 5; i > 0; i--) {
+        sortTask = [...sortTask, ...props.todos.filter(t => t.prio === i)]
+    }
+
 
     return (
         <div className='ShowToDo'>
             <ul>
-                {props.todos.map((t, i) =>
+                {sortTask.map((t, i) =>
                     <li key={i}>
                         <span>{t.task}</span>
                         <span>{t.date}</span>

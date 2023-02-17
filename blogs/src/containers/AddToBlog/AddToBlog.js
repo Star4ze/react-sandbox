@@ -1,18 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Actions from "../../state/Actions";
+import { StateContext } from "../App";
 import './AddToBlog.css';
 
-function AddToBlog(props) {
+
+function AddToBlog() {
     const [inputTitle, setInputTitle] = useState('');
     const [inputAuthor, setInputAuthor] = useState('');
     const [inputContent, setInputContent] = useState('');
     const [error, setError] = useState('');
+
+    const context = useContext(StateContext)
 
     const onSubmit = e => {
         e.preventDefault();
         if (!inputTitle || !inputAuthor) {
             setError("some fields are missing");
         } else {
-            props.AddToBlog({ title: inputTitle, author: inputAuthor, content: inputContent });
+            context.dispatch({ type: Actions.addToBlogs, payload: { title: inputTitle, author: inputAuthor, content: inputContent } })
         }
 
         setInputTitle('');
@@ -34,7 +39,7 @@ function AddToBlog(props) {
                     <textarea id="content" value={inputContent} rows="4" cols="50" onChange={e => setInputContent(e.target.value)} />
                 </div>
             </div>
-            <input type="submit" value="Add" className={`form-submit-button Button-${props.theme}`} />  <strong>{error}</strong>
+            <input type="submit" value="Add" className={`form-submit-button Button-${context.state.theme}`} />  <strong>{error}</strong>
         </form>
     )
 

@@ -11,5 +11,6 @@ export default function useFilter(array = [], searchBy = 'title') {
         case 'content':
             return [filtered, (toSearch = '') => { setFiltered(toSearch.length ? array.filter((e) => e.content.includes(toSearch)) : array) }];
         default:
+            return array;
     }
 }

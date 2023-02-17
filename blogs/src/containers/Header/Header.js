@@ -1,18 +1,33 @@
-import "./Header.css"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
+import Actions from "../../state/Actions"
+import { StateContext } from "../App"
+import "./Header.scss"
 
-export default function Header(props) {
-    const colors = ['peach', 'cofee', 'blue', 'navy']
+
+export default function Header() {
+    const { state, dispatch } = useContext(StateContext)
+    const COLORS = ['peach', 'cofee', 'blue', 'navy']
+    const THEME = state.theme
+
     const changeTheme = () => {
-        if ('navy' !== props.theme) {
-            props.setTheme(colors[colors.indexOf(props.theme) + 1])
+        if ('navy' !== THEME) {
+            dispatch({ type: Actions.setTheme, payload: COLORS[COLORS.indexOf(THEME) + 1] });
         } else {
-            props.setTheme('peach')
+            dispatch({ type: Actions.setTheme, payload: COLORS[0] })
         }
     }
 
-    return (<div className={`Header Header-${props.theme}`}>
-        <header className={`font-${props.theme}`}>Blogs App</header>
-        <button className={`form-submit-button Button-${colors[colors.indexOf(props.theme) + 1]}`} onClick={changeTheme}>{props.theme}</button>
+    const Logout = () => dispatch({ type: Actions.logout })
+
+    return (<div className={`Header Header-${THEME}`}>
+        <header className={`font-${THEME}`}>
+            <Link to='/'> Blogs App </Link>
+        </header>
+
+        {/* {state.authenticated && <button className={`form-submit-button Button-${THEME}`} onClick={Logout}>Logout</button>} */}
+        {state.authenticated ? <button className={`form-submit-button Button-${COLORS[COLORS.indexOf(THEME) + 1]}`} onClick={Logout}>Logout</button> : null}
+        <button className={`form-submit-button Button-${COLORS[COLORS.indexOf(THEME) + 1]}`} onClick={changeTheme}>{THEME}</button>
     </div>)
 
 }
