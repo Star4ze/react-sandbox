@@ -1,0 +1,10 @@
+.ResultCards {
+    width: 100%;
+    background-color: #93BFCF;
+
+}
+
+.ResultCards >li{
+    list-style-type: none;
+
+}
