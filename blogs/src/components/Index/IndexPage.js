@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { StateContext } from '../../containers/App';
 
@@ -12,7 +12,7 @@ function IndexPage() {
     //     navigate('/login')
     // }
 
-    useState(() => {
+    useEffect(() => {
         if (state.authenticated) {
             console.log(1);
             navigate('/home')
@@ -20,7 +20,7 @@ function IndexPage() {
             console.log(2);
             navigate('/login')
         }
-    }, [state.authenticated])
+    }, [navigate, state.authenticated])
 
     return (<></>)
 }

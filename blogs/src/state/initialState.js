@@ -8,7 +8,7 @@ const initialState = {
   authenticated: false,
   theme: 'cofee',
   blogs: initialBlogs,
-  isSearching:false,
+  searchResults:[],
 }
 
 export { initialState };
