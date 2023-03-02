@@ -8,7 +8,7 @@ function ResultCards({ img, title, content }) {
                 {img ? <img src={img.source} alt={title} /> : null}
                 <h3>{title}</h3>
             </div>
-            <pre>{content.slice(0, 30) + '...'}</pre>
+            <p>{content.slice(0, 100) + ' ..........'}</p>
         </div>
     );
 }

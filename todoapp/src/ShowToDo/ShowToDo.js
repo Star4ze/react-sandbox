@@ -1,11 +1,10 @@
-import './ShowToDo.css'
+import './ShowToDo.css';
 
 function ShowToDo(props) {
-    let sortTask = []
+    let sortTask = [];
     for (let i = 5; i > 0; i--) {
-        sortTask = [...sortTask, ...props.todos.filter(t => t.prio === i)]
+        sortTask = [...sortTask, ...props.todos.filter(t => t.prio === i)];
     }
-
 
     return (
         <div className='ShowToDo'>
@@ -15,7 +14,7 @@ function ShowToDo(props) {
                         <span>{t.task}</span>
                         <span>{t.date}</span>
                         <span>{t.prio}</span>
-                        <button onClick={() => props.remove(i)} className='form-submit-button'>Done</button>  {/* y? */}
+                        <button onClick={() => props.remove(i)} className='form-submit-button'>Done</button>
                     </li>)}
             </ul>
         </div>

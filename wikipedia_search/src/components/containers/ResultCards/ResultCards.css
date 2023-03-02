@@ -1,10 +1,12 @@
-.ResultCards {
-    width: 100%;
+.ResultCards {    
     background-color: #93BFCF;
-
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
 }
 
-.ResultCards >li{
-    list-style-type: none;
-
+.ResultCards div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
